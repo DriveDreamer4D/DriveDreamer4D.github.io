@@ -221,61 +221,60 @@
 
 
 
-<div class="row ">
-    <div class="col-md-8 col-md-offset-2 ">
-        <h3>
-            Comparisons
-        </h3>
-        <div class="tabs">
-            <div class="tab" id='compare_video' onclick="showComparison(this)">Video</div>
-            <div class="tab active" id='compare_image' onclick="showComparison(this)">Single Frame</div>
+        <div class="row ">
+            <div class="col-md-8 col-md-offset-2 ">
+                <h3>
+                    Comparisons
+                </h3>
+                <div class="tabs">
+                    <div class="tab" id='compare_video' onclick="showComparison(this)">Video</div>
+                    <div class="tab active" id='compare_image' onclick="showComparison(this)">Single Frame</div>
+                </div>
+ 
+                <div class="image-row">
+                    <div class="image-wrapper">
+                        <div class="video-compare-container" id="seq25_compare_videoDiv" style="display: none;">
+                            <video class="video" id="seq25_compare_video" loop playsinline autoPlay muted 
+                                src="comparsion/005.mp4" onplay="resizeAndPlay(this)">
+                            </video>
+                            <canvas height=0 class="videoMerge" id="seq25_compare_videoMerge"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="image-wrapper">
+                        <div class="video-compare-container" id="seq06_compare_videoDiv" style="display: none;">
+                            <video class="video" id="seq06_compare_video" loop playsinline autoPlay muted 
+                                src="comparsion/065.mp4" onplay="resizeAndPlay(this)">
+                            </video>
+                            <canvas height=0 class="videoMerge" id="seq06_compare_videoMerge"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-row">
+                    <div class="image-wrapper">
+                        <div class="video-compare-container" id="seq25_compare_imageDiv" style="display: inline;">
+                            <video class="video" id="seq25_compare_image" loop playsinline autoPlay muted 
+                                src="comparsion/005_combine.mp4" onplay="resizeAndPlay(this)">
+                            </video>
+                            <canvas height=0 class="videoMerge" id="seq25_compare_imageMerge"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="image-wrapper">
+                        <div class="video-compare-container" id="seq06_compare_imageDiv" style="display: inline;">
+                            <video class="video" id="seq06_compare_image" loop playsinline autoPlay muted 
+                                src="comparsion/065_combine.mp4" onplay="resizeAndPlay(this)">
+                            </video>
+                            <canvas height=0 class="videoMerge" id="seq06_compare_imageMerge"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <figcaption class="text-center mt-2">
+                    Results of novel trajectory renderings during lane change scenarios. The left shows 
+                    <span>S<sup>3</sup>Gaussian</span>, while the right shows DriveDreamer4D-<span>S<sup>3</sup>Gaussian</span>.
+                </figcaption>
+            </div>
         </div>
-
-        <div class="image-row">
-            <div class="image-wrapper">
-                <div class="video-compare-container" id="seq25_compare_videoDiv" style="display: none;">
-                    <video class="video" id="seq25_compare_video" loop playsinline autoPlay muted 
-                        src="comparsion/005.mp4" onplay="resizeAndPlay(this)" style="width: 50%;">
-                    </video>
-                    <canvas height=0 class="videoMerge" id="seq25_compare_videoMerge"></canvas>
-                </div>
-            </div>
-
-            <div class="image-wrapper">
-                <div class="video-compare-container" id="seq06_compare_videoDiv" style="display: none;">
-                    <video class="video" id="seq06_compare_video" loop playsinline autoPlay muted 
-                        src="comparsion/065.mp4" onplay="resizeAndPlay(this)" style="width: 50%;">
-                    </video>
-                    <canvas height=0 class="videoMerge" id="seq06_compare_videoMerge"></canvas>
-                </div>
-            </div>
-        </div>
-        <div class="image-row">
-            <div class="image-wrapper">
-                <div class="video-compare-container" id="seq25_compare_imageDiv" style="display: inline;">
-                    <video class="video" id="seq25_compare_image" loop playsinline autoPlay muted 
-                        src="comparsion/005_combine.mp4" onplay="resizeAndPlay(this)" style="width: 50%;">
-                    </video>
-                    <canvas height=0 class="videoMerge" id="seq25_compare_imageMerge"></canvas>
-                </div>
-            </div>
-
-            <div class="image-wrapper">
-                <div class="video-compare-container" id="seq06_compare_imageDiv" style="display: inline;">
-                    <video class="video" id="seq06_compare_image" loop playsinline autoPlay muted 
-                        src="comparsion/065_combine.mp4" onplay="resizeAndPlay(this)" style="width: 50%;">
-                    </video>
-                    <canvas height=0 class="videoMerge" id="seq06_compare_imageMerge"></canvas>
-                </div>
-            </div>
-        </div>
-        <figcaption class="text-center mt-2">
-            Results of novel trajectory renderings during lane change scenarios. The left shows 
-            <span>S<sup>3</sup>Gaussian</span>, while the right shows DriveDreamer4D-<span>S<sup>3</sup>Gaussian</span>.
-        </figcaption>
-    </div>
-</div>
-
         
 
 
