@@ -214,9 +214,9 @@
                     <body>
                         <p>
                             Closed-loop simulation is essential for advancing end-to-end autonomous driving systems. Contemporary sensor simulation methods, such as NeRF and 3DGS, rely predominantly on conditions closely aligned with training data distributions, which are largely confined to forward-driving scenarios. Consequently, these methods face limitations when rendering complex maneuvers (e.g., lane change, acceleration, deceleration). Recent advancements in autonomous-driving world models have demonstrated the potential to generate diverse driving videos. However, these approaches remain constrained to 2D video generation, inherently lacking the spatiotemporal coherence required to capture intricacies of dynamic driving environments.
-                            In this paper, we introduce <em>DriveDreamer4D</em>, which enhances 4D driving scene representation leveraging world model priors.
-                            Specifically, we utilize the world model as a data machine to synthesize novel trajectory videos based on real-world driving data. Notably, we explicitly leverage structured conditions to control the spatial-temporal consistency of foreground and background elements, thus the generated data adheres closely to traffic constraints. To our knowledge, <em>DriveDreamer4D</em> is the first to utilize video generation models for improving 4D reconstruction in driving scenarios.
-                            Experimental results reveal that <em>DriveDreamer4D</em> significantly enhances generation quality under novel trajectory views, achieving a relative improvement in FID by 24.5%, 39.0%, and 10.5% compared to PVG, S<sup>3</sup>Gaussian, and Deformable-GS. Moreover, <em>DriveDreamer4D</em> markedly enhances the spatiotemporal coherence of driving agents, which is verified by a comprehensive user study and the relative increases of 20.3%, 42.0%, and 13.7% in the NTA-IoU metric.
+                            In this paper, we introduce <em>DriveDreamer4D</em>, which enhances 4D driving scene representation leveraging world model priors. 
+                            Specifically, we utilize the world model as a data machine to synthesize novel trajectory videos, where structured conditions are explicitly leveraged to control the spatial-temporal consistency of traffic elements. Besides, the cousin data training strategy is proposed to facilitate merging real and synthetic data for optimizing 4DGS. To our knowledge, <em>DriveDreamer4D</em> is the first to utilize video generation models for improving 4D reconstruction in driving scenarios.
+                            Experimental results reveal that <em>DriveDreamer4D</em> significantly enhances generation quality under novel trajectory views, achieving a relative improvement in FID  by 32.1%, 46.4%, and 16.3% compared to PVG, S<sup>3</sup>Gaussian, and Deformable-GS. Moreover, <em>DriveDreamer4D</em> markedly enhances the spatiotemporal coherence of driving agents, which is verified by a comprehensive user study and the relative increases of 22.6%, 43.5%, and 15.6% in the NTA-IoU metric.
                         </p>
                     </body>
                 </p>
@@ -238,11 +238,11 @@
                 <div class="image-row" >
                     <div class="image-wrapper">
                       <figcaption class="text-center mt-2">
-                        The left shows <b><span>S<sup>3</sup>Gaussian</span></b>, while the right shows <b><em>DriveDreamer4D</em>-<span>S<sup>3</sup>Gaussian</span></b>.
+                        The left shows <b><span>PVG</span></b>, while the right shows <b><em>DriveDreamer4D</em>-<span>PVG</span></b>.
                    </figcaption>
                         <div class="video-compare-container" id="seq25_compare_videoDiv" style="display: inline;">
                             <video class="video" id="seq25_compare_video" loop playsinline autoPlay muted 
-                                src="comparsion/005.mp4" onplay="resizeAndPlay(this)">
+                                src="comparsion/005_dynamic.mp4" onplay="resizeAndPlay(this)">
                             </video>
                             <canvas height=0 class="videoMerge" id="seq25_compare_videoMerge"></canvas>
                         </div>
@@ -251,11 +251,11 @@
 
                     <div class="image-wrapper">
                       <figcaption class="text-center mt-2">
-                        The left shows <b><span>S<sup>3</sup>Gaussian</span></b>, while the right shows <b><em>DriveDreamer4D</em>-<span>S<sup>3</sup>Gaussian</span></b>.
+                        The left shows <b><span>PVG</span></b>, while the right shows <b><em>DriveDreamer4D</em>-<span>PVG</span></b>.
                     </figcaption>
                         <div class="video-compare-container" id="seq06_compare_videoDiv" style="display: inline;">
                             <video class="video" id="seq06_compare_video" loop playsinline autoPlay muted 
-                                src="comparsion/065.mp4" onplay="resizeAndPlay(this)">
+                                src="comparsion/065_dynamic.mp4" onplay="resizeAndPlay(this)">
                             </video>
                             <canvas height=0 class="videoMerge" id="seq06_compare_videoMerge"></canvas>
                         </div>
@@ -267,7 +267,7 @@
                     <div class="image-wrapper">
                         <div class="video-compare-container" id="seq25_compare_imageDiv" style="display: none;">
                             <video class="video" id="seq25_compare_image" loop playsinline autoPlay muted 
-                                src="comparsion/005_combine.mp4" onplay="resizeAndPlay(this)">
+                                src="comparsion/005_static.mp4" onplay="resizeAndPlay(this)">
                             </video>
                             <canvas height=0 class="videoMerge" id="seq25_compare_imageMerge"></canvas>
                         </div>
@@ -276,7 +276,7 @@
                     <div class="image-wrapper">
                         <div class="video-compare-container" id="seq06_compare_imageDiv" style="display: none;">
                             <video class="video" id="seq06_compare_image" loop playsinline autoPlay muted 
-                                src="comparsion/065_combine.mp4" onplay="resizeAndPlay(this)">
+                                src="comparsion/065_static.mp4" onplay="resizeAndPlay(this)">
                             </video>
                             <canvas height=0 class="videoMerge" id="seq06_compare_imageMerge"></canvas>
                         </div>
@@ -301,7 +301,7 @@
                         <div class="image-row">
                             <div class="image-wrapper">
                                 <video width="100%" loop muted autoplay>
-                                    <source src="comparsion/change/027_pvg.mp4" type="video/mp4" />
+                                    <source src="comparsion/lane_change/pvg_vs_drivedreamer4d_with_text.mp4" type="video/mp4" />
                                 </video>
                             </div>
                         </div>
@@ -309,7 +309,7 @@
                         <div class="image-row">
                             <div class="image-wrapper">
                                 <video width="100%" loop muted autoplay>
-                                    <source src="comparsion/change/018_combine.mp4" type="video/mp4" />
+                                    <source src="comparsion/lane_change/s3gaussian_vs_drivedreamer4d_with_text.mp4" type="video/mp4" />
                                 </video>
                             </div>
                         </div>
@@ -318,7 +318,7 @@
                         <div class="image-row">
                             <div class="image-wrapper">
                                 <video width="100%" loop muted autoplay>
-                                    <source src="comparsion/change/164_df.mp4" type="video/mp4" />
+                                    <source src="comparsion/lane_change/deformablegs_vs_drivedreamer4d_with_text.mp4" type="video/mp4" />
                                 </video>
                             </div>
                         </div>
@@ -346,7 +346,7 @@
                         <div class="image-row">
                             <div class="image-wrapper">
                                 <video width="100%" loop muted autoplay>
-                                    <source src="comparsion/acc/065_pvg.mp4" type="video/mp4" />
+                                    <source src="comparsion/speed_change/pvg_vs_drivedreamer4d_with_text.mp4" type="video/mp4" />
                                 </video>
                             </div>
                         </div>
@@ -354,14 +354,14 @@
                         <div class="image-row">
                             <div class="image-wrapper">
                                 <video width="100%" loop muted autoplay>
-                                    <source src="comparsion/acc/121_s3.mp4" type="video/mp4" />
+                                    <source src="comparsion/speed_change/s3gaussian_vs_drivedreamer4d_with_text.mp4" type="video/mp4" />
                                 </video>
                             </div>
                         </div>
                         <div class="image-row">
                             <div class="image-wrapper">
                                 <video width="100%" loop muted autoplay>
-                                    <source src="comparsion/acc/096_df.mp4" type="video/mp4" />
+                                    <source src="comparsion/speed_change/deformablegs_vs_drivedreamer4d_with_text.mp4" type="video/mp4" />
                                 </video>
                             </div>
                         </div>
